@@ -41,6 +41,7 @@ class ContractServiceImplement extends ServiceApi implements ContractService
     $query =  $this->mainRepository->withSum(['installmentSchedules' => function ($query) {
       if (request()->filled('due_date')) {
         $query->where('due_date', '<=', request()->due_date);
+        // $query->where('paid_date', '!=', null);
       }
     }], 'installment_per_month');
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('installment_to');
             $table->integer('installment_per_month');
             $table->date('due_date');
+            $table->date('paid_date')->nullable();
             $table->timestamps();
 
             $table->foreign('contract_id')->references('id')->on('contract')->onUpdate('Cascade')->onDelete('Cascade');
