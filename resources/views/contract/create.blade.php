@@ -24,6 +24,14 @@
                         <input type="number" class="form-control" name="otr">
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Downpayment (in %)</label>
+                        <input type="number" class="form-control" name="downpayment">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Time Periode (in month)</label>
+                        <input type="number" class="form-control" name="time_periode">
+                    </div>
+                    <div class="mb-3">
                         <button type="submit" class="btn btn-primary">submit</button>
                     </div>
                 </form>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('contract_number')->unique();
             $table->string('client_name');
             $table->integer('otr');
+            $table->integer('downpayment');
             $table->timestamps();
         });
     }

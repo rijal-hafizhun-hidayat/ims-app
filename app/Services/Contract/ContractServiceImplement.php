@@ -36,12 +36,28 @@ class ContractServiceImplement extends ServiceApi implements ContractService
     return $this->mainRepository->all();
   }
 
+  public function getContractWithSumInstallmentSchedule()
+  {
+    $query =  $this->mainRepository->withSum(['installmentSchedules' => function ($query) {
+      if (request()->filled('due_date')) {
+        $query->where('due_date', '<=', request()->due_date);
+      }
+    }], 'installment_per_month');
+
+    if (request()->filled('client_name')) {
+      $query->where('client_name', 'like', '%' . request()->client_name . '%');
+    }
+
+    return $query->get();
+  }
+
   public function storeContract($payload)
   {
     return $this->mainRepository->create([
       'contract_number' => $payload['contract_number'],
       'client_name' => $payload['client_name'],
-      'otr' => $payload['otr']
+      'otr' => $payload['otr'],
+      'downpayment' => $payload['downpayment']
     ]);
   }
 
