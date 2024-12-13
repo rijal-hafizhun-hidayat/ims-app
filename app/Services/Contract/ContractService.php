@@ -9,5 +9,6 @@ interface ContractService extends BaseService
 
     // Write something awesome :)
     public function getAllContract();
+    public function getContractWithSumInstallmentSchedule();
     public function storeContract($payload);
 }
