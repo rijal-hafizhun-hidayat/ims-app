@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid px-4">
         <h1 class="my-4">Installment Schedule</h1>
-        <form method="get" action="{{ route('installment-schedule.index') }}">
+        <form method="get" action="{{ route('installment-schedule.contractWithSumInstallmentSchedulesAsPinalty') }}">
             <div class="container mb-4">
                 <div class="row">
                     <div class="col">
@@ -37,20 +37,19 @@
                             <th scope="col">Contract Number</th>
                             <th scope="col">Client Name</th>
                             <th scope="col">Total Installments due</th>
+                            <th scope="col">Total Pinalty</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if (!is_null($contractWithSumInstallmentSchedules))
-                            @foreach ($contractWithSumInstallmentSchedules as $contractWithSumInstallmentSchedule)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $contractWithSumInstallmentSchedule->contract_number }}</td>
-                                    <td>{{ $contractWithSumInstallmentSchedule->client_name }}</td>
-                                    <td>{{ formatRupiah($contractWithSumInstallmentSchedule->installment_schedules_sum_installment_per_month) }}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                        @foreach ($pinaltyDatas as $pinaltyData)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $pinaltyData['contract_number'] }}</td>
+                                <td>{{ $pinaltyData['client_name'] }}</td>
+                                <td>{{ formatRupiah($pinaltyData['total_amount']) }}</td>
+                                <td>{{ formatRupiah($pinaltyData['total_pinalty']) }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
