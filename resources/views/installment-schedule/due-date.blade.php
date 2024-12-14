@@ -41,15 +41,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pinaltyDatas as $pinaltyData)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $pinaltyData['contract_number'] }}</td>
-                                <td>{{ $pinaltyData['client_name'] }}</td>
-                                <td>{{ formatRupiah($pinaltyData['total_amount']) }}</td>
-                                <td>{{ formatRupiah($pinaltyData['total_pinalty']) }}</td>
-                            </tr>
-                        @endforeach
+                        @if (!is_null($pinaltyDatas))
+                            @foreach ($pinaltyDatas as $pinaltyData)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $pinaltyData['contract_number'] }}</td>
+                                    <td>{{ $pinaltyData['client_name'] }}</td>
+                                    <td>{{ formatRupiah($pinaltyData['total_amount']) }}</td>
+                                    <td>{{ formatRupiah($pinaltyData['total_pinalty']) }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
