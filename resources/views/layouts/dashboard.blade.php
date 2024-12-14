@@ -46,9 +46,18 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('contract.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Book
+                            Contract
+                        </a>
+                        <a class="nav-link" href="{{ route('installment-schedule.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Installment Schedule
+                        </a>
+                        <a class="nav-link"
+                            href="{{ route('installment-schedule.contractWithSumInstallmentSchedulesAsPinalty') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Installment Schedule Pinalty
                         </a>
                     </div>
                 </div>

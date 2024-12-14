@@ -8,4 +8,9 @@ class Contract extends Model
 {
     protected $table = 'contract';
     protected $guarded = ['id'];
+
+    public function installmentSchedules()
+    {
+        return $this->hasMany(InstallmentSchedule::class, 'contract_id', 'id');
+    }
 }
