@@ -11,4 +11,6 @@ interface ContractService extends BaseService
     public function getAllContract();
     public function getContractWithSumInstallmentSchedule();
     public function storeContract($payload);
+    public function contractWithSumInstallmentSchedulesAsPinalties();
+    public function setPenalty($contractWithSumInstallmentSchedulesAsPinalties, $timePeriode, $pinaltyRate);
 }

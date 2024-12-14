@@ -12,4 +12,5 @@ Route::prefix('contract')->group(function () {
 
 Route::prefix('installment-schedule')->group(function () {
     Route::get('/', [InstallmentScheduleController::class, 'index'])->name('installment-schedule.index');
+    Route::get('/pinalty', [InstallmentScheduleController::class, 'contractWithSumInstallmentSchedulesAsPinalty'])->name('installment-schedule.contractWithSumInstallmentSchedulesAsPinalty');
 });
